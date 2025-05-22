@@ -22,39 +22,42 @@ const clickCategory = (team) => {
     T1.removeAttribute("class");
     GEN.removeAttribute("class");
     HLE.removeAttribute("class");
-    eval(team).classList = team;
-    const teamList = lists.filter(list => team === list.category);
-    div.innerHTML = ""
-    teamList.forEach(element => {
-        const mainDiv = document.createElement("div");
-        const upDiv = document.createElement("div");
-        const titleDiv = document.createElement("div");
-        const contentDiv = document.createElement("div");
-        const dateDiv = document.createElement("div");
+    if (lists) {
+        eval(team).classList = team;
+        const teamList = lists.filter(list => team === list.category);
+        div.innerHTML = ""
+        teamList.forEach(element => {
+            const mainDiv = document.createElement("div");
+            const upDiv = document.createElement("div");
+            const titleDiv = document.createElement("div");
+            const contentDiv = document.createElement("div");
+            const dateDiv = document.createElement("div");
 
-        mainDiv.classList = "mainDiv";
-        mainDiv.setAttribute("id", element.id);
+            mainDiv.classList = "mainDiv";
+            mainDiv.setAttribute("id", element.id);
 
-        titleDiv.classList = "titleDiv";
-        titleDiv.textContent = `${element.title}`;
+            titleDiv.classList = "titleDiv";
+            titleDiv.textContent = `${element.title}`;
 
-        contentDiv.classList = "contentDiv";
-        contentDiv.textContent = `${element.content}`;
+            contentDiv.classList = "contentDiv";
+            contentDiv.textContent = `${element.content}`;
 
-        dateDiv.classList = "dateDiv";
-        dateDiv.textContent = `${element.date.substr(0, 10)}`;
+            dateDiv.classList = "dateDiv";
+            dateDiv.textContent = `${element.date.substr(0, 10)}`;
 
-        upDiv.classList = "upDiv";
-        upDiv.setAttribute("id", element.id);
+            upDiv.classList = "upDiv";
+            upDiv.setAttribute("id", element.id);
 
-        mainDiv.addEventListener("click", viewContent);
+            mainDiv.addEventListener("click", viewContent);
 
-        upDiv.appendChild(titleDiv);
-        upDiv.appendChild(dateDiv);
-        mainDiv.appendChild(upDiv);
-        mainDiv.appendChild(contentDiv);
-        div.appendChild(mainDiv);
-    });
+            upDiv.appendChild(titleDiv);
+            upDiv.appendChild(dateDiv);
+            mainDiv.appendChild(upDiv);
+            mainDiv.appendChild(contentDiv);
+            div.appendChild(mainDiv);
+        });
+    }
+
 }
 
 clickCategory("T1");
