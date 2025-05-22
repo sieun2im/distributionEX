@@ -22,7 +22,7 @@ const deleteList = () => {
 deleteBtn.addEventListener("click", deleteList);
 
 const clickBack = () => {
-    window.location.href = "last.html";
+    window.location.href = "index.html";
 }
 
 backBtn.addEventListener("click", clickBack);

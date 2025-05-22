@@ -33,12 +33,12 @@ const clickCheck = (event) => {
     localStorage.setItem("lists", JSON.stringify(list));
     titleInput.value = "";
     contentInput.value = "";
-    window.location.href = "last.html";
+    window.location.href = "index.html";
 
 }
 
 const clickBack = () => {
-    window.location.href = "last.html";
+    window.location.href = "index.html";
 }
 
 checkBtn.addEventListener("click", clickCheck);
