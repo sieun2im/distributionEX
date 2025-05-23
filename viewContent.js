@@ -17,6 +17,7 @@ p.textContent = viewContent.content;
 const deleteList = () => {
     lists = lists.filter(list => viewContent.id !== list.id);
     localStorage.setItem("lists", JSON.stringify(lists));
+    window.location.href = "index.html";
 }
 
 deleteBtn.addEventListener("click", deleteList);
