@@ -60,9 +60,14 @@ const clickCategory = (team) => {
 
 }
 
+const clickButton = () => {
+    localStorage.setItem("viewContent", JSON.stringify("add"));
+    window.location.href = "addContent.html";
+}
+
 clickCategory("T1");
 
-button.addEventListener("click", () => window.location.href = "addContent.html");
+button.addEventListener("click", clickButton);
 
 T1.addEventListener("click", () => { clickCategory("T1") });
 GEN.addEventListener("click", () => { clickCategory("GEN") });
