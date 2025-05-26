@@ -3,6 +3,7 @@ const cate = document.querySelector(".category");
 const p = document.querySelector(".content");
 const deleteBtn = document.querySelector(".delete");
 const backBtn = document.querySelector(".back");
+const modifyBtn = document.querySelector(".modify");
 
 const viewContent = JSON.parse(localStorage.getItem("viewContent"));
 let lists = JSON.parse(localStorage.getItem("lists"));
@@ -26,4 +27,13 @@ const clickBack = () => {
     window.location.href = "index.html";
 }
 
+
 backBtn.addEventListener("click", clickBack);
+
+const clickModify = () => {
+    window.location.href = "addContent.html";
+
+}
+
+
+modifyBtn.addEventListener("click", clickModify);

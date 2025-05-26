@@ -7,6 +7,14 @@ const backBtn = document.querySelector(".back");
 let list = [];
 let count = 0;
 
+const add = JSON.parse(localStorage.getItem("viewContent"));
+
+if (add !== "add") {
+    titleInput.value = add.title;
+    categoryInput.value = add.category;
+    contentInput.value = add.content;
+}
+
 const clickCheck = (event) => {
     event.preventDefault();
     if (JSON.parse(localStorage.getItem("lists")) !== null) {
@@ -19,16 +27,31 @@ const clickCheck = (event) => {
     const contentV = contentInput.value;
     const cateV = categoryInput.value;
 
+    if (add === "add") {
+        const newList = {
+            id: count,
+            date: new Date(),
+            title: titleV,
+            content: contentV,
+            category: cateV
+        }
 
-    const newList = {
-        id: count,
-        date: new Date(),
-        title: titleV,
-        content: contentV,
-        category: cateV
+        list.push(newList);
+    } else {
+        const newList = {
+            id: add.id,
+            date: new Date(),
+            title: titleV,
+            content: contentV,
+            category: cateV
+        }
+        const indexNum = list.findIndex(item => item.id === add.id);
+
+        list.splice(indexNum, 1, newList);
     }
 
-    list.push(newList);
+
+
 
     localStorage.setItem("lists", JSON.stringify(list));
     titleInput.value = "";
